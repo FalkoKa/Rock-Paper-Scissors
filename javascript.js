@@ -1,4 +1,8 @@
 // game
+let result = ''
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
@@ -10,10 +14,10 @@ function getComputerChoice() {
     };
 }
 
+
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection;
-    let result = '';
 
     if (player === computer) {
         result = 'Draw! Play again!!!';
@@ -30,21 +34,41 @@ function playRound(playerSelection, computerSelection) {
     } else if (player === 'scissors' && computer === 'paper') {
         result = 'You Win! Scissors beat Paper';
     }
-    return result;
+    resultDiv.textContent = result;
+    // increment playerScore or computerScore
+    // call result()
 }
 
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt('Choose Rock, Paper, or Scissors')
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    return 'Finished, You played five rounds!'
+//UI
+const buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper');
+const buttonScissors = document.getElementById('button-scissors');
+const resultDiv = document.querySelector('.game-result');
+
+buttonRock.addEventListener('click', () => handleClick('rock'));
+buttonPaper.addEventListener('click', () => handleClick('paper'));
+buttonScissors.addEventListener('click', () => handleClick('scissors'));
+
+
+function handleClick(playerSelection) {
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+}
+
+function displayResult() {
+    //resultDiv.textContent = result
+    //
 }
 
 
-// Wanna add:
-// counter function, adding up the scores
-// who has 5 points first, wins the round
-// in the end, winner is declared
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = prompt('Choose Rock, Paper, or Scissors')
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+//     return 'Finished, You played five rounds!'
+// }
+
+

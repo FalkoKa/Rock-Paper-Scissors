@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -18,11 +17,15 @@
         <div class="game-instructions">
             <h2>Choose your sign</h2>
         </div>
+        <div class="counter">
+            <p class="score" id="player-score">Player 0</p>
+            <p class="score" id="computer-score">Computer 0</p>
+        </div>
         <div class="game-result"></div>
         <div class="buttons">
-            <button>ROCK</button>
-            <button>PAPER</button>
-            <button>SCISSORS</button>
+            <button class="button" id="button-rock">ROCK</button>
+            <button class="button" id="button-paper">PAPER</button>
+            <button class="button" id="button-scissors">SCISSORS</button>
         </div>
     </div>
 
@@ -31,5 +34,6 @@
         <span>Copyright &#169; 2023 Falko Kammel</span>
     </div>
 -->
+<script src="javascript.js"></script>
 </body>
 </html>
