@@ -48,41 +48,43 @@ function playRound(playerSelection, computerSelection) {
 
 function gameOver() {
     if (playerScore === 5) {
+        btnDiv.append(brElement);
+        btnDiv.append(btnRestart);
         endResult.textContent = 'Finished, You played five rounds! You won';
-        return restartGame();
+        buttonRock.style.visibility='hidden';
+        buttonPaper.style.visibility='hidden';
+        buttonScissors.style.visibility='hidden';
     } else if (computerScore === 5) {
+        btnDiv.append(brElement);
+        btnDiv.append(btnRestart);
         endResult.textContent = 'Finished, You played five rounds! Computer won';
-        return restartGame();
+        buttonRock.style.visibility='hidden';
+        buttonPaper.style.visibility='hidden';
+        buttonScissors.style.visibility='hidden';
     }
 }
-
-// function gameOver() {
-//     if (playerScore === 5) {
-//         endResult.textContent = 'Finished, You played five rounds! You won';
-//         restartBtn.append('div .buttons')
-//     } else if (computerScore === 5) {
-//         endResult.textContent = 'Finished, You played five rounds! Computer won';
-//         restartBtn.append('div .buttons')
-//     }
-// }
-// restartGame() when button clicked
 
 
 //UI
 const buttonRock = document.getElementById('button-rock');
 const buttonPaper = document.getElementById('button-paper');
 const buttonScissors = document.getElementById('button-scissors');
-const buttonRestart = document.getElementById('button-restart')
 const resultPar = document.querySelector('#game-result');
 const playerS = document.getElementById('player-score');
 const computerS = document.getElementById('computer-score');
 const endResult = document.getElementById('end-result');
+const btnDiv = document.getElementById('button-div');
+const btnRestart = document.createElement('button');
+const btnAll = document.getElementById('.button');
+const brElement = document.createElement('br');
 
+btnRestart.setAttribute('id', 'restart-button')
+btnRestart.innerHTML = 'RESTART GAME';
 
 buttonRock.addEventListener('click', () => handleClick('rock'));
 buttonPaper.addEventListener('click', () => handleClick('paper'));
 buttonScissors.addEventListener('click', () => handleClick('scissors'));
-buttonRestart.addEventListener('click', () => restartGame());
+btnRestart.addEventListener('click', () => restartGame());
 
 
 function handleClick(playerSelection) {
@@ -91,8 +93,12 @@ function handleClick(playerSelection) {
     gameOver();
 }
 
-
 function restartGame() {
+    buttonRock.style.visibility='visible';
+    buttonPaper.style.visibility='visible';
+    buttonScissors.style.visibility='visible';
+    brElement.remove();
+    btnRestart.remove();
     result = '';
     playerScore = 0;
     computerScore = 0;
