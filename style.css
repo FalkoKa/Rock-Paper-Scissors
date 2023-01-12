@@ -29,7 +29,7 @@ button {
 
 .header {
     background-color: rgb(43, 27, 27);
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     height: 120px;
     width: 100%;
     margin: 0;
